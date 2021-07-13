@@ -110,6 +110,13 @@ main {
   display: none;
 }
 
+.close-button {
+	float: right;
+	font-size: 3em;
+	cursor: pointer;
+	padding-right: 0.6em; 
+}
+
 .show-lightbox { display: block; }
 
 
