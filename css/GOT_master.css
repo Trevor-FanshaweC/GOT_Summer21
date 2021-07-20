@@ -119,9 +119,16 @@ main {
 
 .show-lightbox { display: block; }
 
+.house-info {
+  color: white;
+  font-size: 1.5em;
+  line-height: 1;
+  width: 75%;
+  margin: 0 auto;
+}
 
 video {
 	width: 70%;
-	margin: 1%; auto 0 auto;
+	margin: 1% auto 0 auto;
 	border: thin solid #949393;
 }
