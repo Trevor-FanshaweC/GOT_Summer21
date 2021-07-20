@@ -3,7 +3,25 @@
         lBox = document.querySelector(".lightbox"),
         houseVideo = document.querySelector("video"),
         lbClose = lBox.querySelector(".close-button"),
-        houseImages = document.querySelector("#houseImages");
+        houseImages = document.querySelector("#houseImages"),
+        houseName = document.querySelector(".house-name"),
+        houseInfo = document.querySelector(".house-info");
+
+  // store the house data in an array here
+  const houseData = [ //houseData[0][1]
+    ["Stark", `House Stark of Winterfell is a Great House of Westeros, ruling over the vast region known as the North from their seat in Winterfell. It is one of the oldest lines of Westerosi nobility by far, claiming a line of descent stretching back over eight thousand years. Before the Targaryen conquest, as well as during the War of the Five Kings and Daenerys Targaryen's invasion of Westeros, the leaders of House Stark ruled over the region as the Kings in the North.`],
+     // 0
+    ["Baratheon", `some stuff about Baratheon`],
+     // 1
+    ["Lannister", ``],
+    
+    ["Tully", ``],
+
+    ["Greyjoy", ``],
+
+    ["Arryn", ``]
+  ]
+
 
   function popLightBox() {
     // find the right house video using the CSS class attached to the sigil that was clicked
@@ -38,9 +56,19 @@
         finalOffset = offSet * multiplier;
         // this will be a product of the mulitipier * the offset (600 * something)
     houseImages.style.right = finalOffset + "px";
+
+    // call the showHouseData function and pass the offset to it
+    showHouseData(multiplier);
   }
 
-  // sigils.forEach(sigil => sigil.addEventListener("click", popLightBox));
+  function showHouseData(targetIndex) {
+    debugger;
+
+    houseName.textContent = `House ${houseData[targetIndex][0]}`;
+    houseInfo.textContent = houseData[targetIndex][1];
+  }=
+
+  sigils.forEach(sigil => sigil.addEventListener("click", popLightBox));
   sigils.forEach(sigil => sigil.addEventListener("click", animateBanners));
 
 
