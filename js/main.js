@@ -2,7 +2,8 @@
   const sigils = document.querySelectorAll(".sigilContainer"),
         lBox = document.querySelector(".lightbox"),
         houseVideo = document.querySelector("video"),
-        lbClose = lBox.querySelector(".close-button");
+        lbClose = lBox.querySelector(".close-button"),
+        houseImages = document.querySelector("#houseImages");
 
   function popLightBox() {
     // find the right house video using the CSS class attached to the sigil that was clicked
@@ -29,7 +30,20 @@
     lBox.classList.remove('show-lightbox');
   }
 
-  sigils.forEach(sigil => sigil.addEventListener("click", popLightBox));
+  function animateBanners() {
+    // move the banners across the screen
+    const offSet = 600;
+
+    let multiplier = this.dataset.offset,
+        finalOffset = offSet * multiplier;
+        // this will be a product of the mulitipier * the offset (600 * something)
+    houseImages.style.right = finalOffset + "px";
+  }
+
+  // sigils.forEach(sigil => sigil.addEventListener("click", popLightBox));
+  sigils.forEach(sigil => sigil.addEventListener("click", animateBanners));
+
+
   lbClose.addEventListener("click", closeLightBox);
   houseVideo.addEventListener("ended", closeLightBox);
 })();
